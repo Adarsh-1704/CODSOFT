@@ -56,9 +56,17 @@ export default function Home() {
                 </button> */}
               </div>
             </div>
+            <div className="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1508736793122-f516e3ba5569?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YnVyZ2VyfHx8fHx8MTY5NDI2ODYxMg&ixlib=rb-4.0.3&q=80&w=1080"
+                className="d-block w-100"
+                style={{ filter: "brightness(30%)" }}
+                alt="..."
+              />
+            </div>
             <div className="carousel-item active">
               <img
-                src="https://source.unsplash.com/random/300×300?burger"
+                src="https://images.unsplash.com/photo-1530006261244-0ae043004358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cGFzdHJ5fHx8fHx8MTY5NDI2ODU4MQ&ixlib=rb-4.0.3&q=80&w=1080"
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -66,15 +74,7 @@ export default function Home() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/300×300?pastry"
-                className="d-block w-100"
-                style={{ filter: "brightness(30%)" }}
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src="https://source.unsplash.com/random/300×300?barbeque"
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YmFyYmVxdWV8fHx8fHwxNjk0MjY4NjMz&ixlib=rb-4.0.3&q=80&w=1080"
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -108,16 +108,14 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCategory !== []
-          ? foodCategory.map((data) => {
+        {foodCategory.map((data) => {
               return (
                 <div className="row mb-3">
                   <div key={data._id} className="fs-3 m-3">
                     {data.CategoryName}
                   </div>
                   <hr />
-                  {foodItem !== []
-                    ? foodItem
+                  {foodItem
                         .filter(
                           (item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLowerCase()))
                         )
@@ -133,12 +131,10 @@ export default function Home() {
                               />
                             </div>
                           );
-                        })
-                    : ""}
+                        })}
                 </div>
               );
-            })
-          : ""}
+            })}
       </div>
       <div>
         <Footer />
