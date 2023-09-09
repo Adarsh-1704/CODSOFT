@@ -3,7 +3,7 @@ import { TextField, Box, Button, Typography, styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
-import logo from '../image/Blogger-Logo.png'
+import logo from '../image/Blogger-Logo.png';
 
 const Component = styled(Box)`
     width: 400px;
@@ -11,12 +11,20 @@ const Component = styled(Box)`
     margin-top: 50px;
     box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.4);
 `
+
 const Image = styled('img')({
     width: 200,
     margin: 'auto',
     display: 'flex',
     padding: '50px 0 0'
 });
+
+const LogoText = styled(Typography)`
+    font-size: 30px;
+    text-align: center;
+    color: #333; /* You can adjust the color to your preference */
+    margin-top: 10px;
+`;
 
 const Wrapper = styled(Box)`
     padding: 25px 35px;
@@ -27,28 +35,6 @@ const Wrapper = styled(Box)`
         margin-top: 20px;
     }
 `
-// const LoginButton = styled(Button)`
-//     text-transform: none;
-//     background: #FB641B;
-//     color: #fff;
-//     height: 48px;
-//     border-radius: 2px;
-// `;
-
-// const SignupButton = styled(Button)`
-//     text-transform: none;
-//     background: #fff;
-//     color: #2874f0;
-//     height: 48px;
-//     border-radius: 2px;
-//     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
-// `;
-
-// const Text = styled(Typography)`
-//     color: #878787;
-//     font-size: 12px;
-// `;
-
 const Error = styled(Typography)`
     font-size: 10px;
     color: #ff6161;
@@ -116,11 +102,11 @@ const Login = ({ isUserAuthenticated }) => {
             showError('Something went wrong! please try again later');
         }
     }
-
     return (
         <Component>
             <Box>
                 <Image src={logo} alt="blog" />
+                <LogoText variant="h1">BLOGGERS</LogoText> {/* Add the "BLOGGERS" text here */}
                 {
                     account === 'login' ?
                     <Wrapper>
